@@ -8,9 +8,15 @@ const routes = [
     {
         path: '/login',
         name: 'login',
+
         component: () => import('../views/login')
     },
-    
+    {
+        path: '/welcome',
+        name: 'layout',
+
+        component: () => import('../layout/index')
+    }
 ]
 
 const router = new VueRouter({
