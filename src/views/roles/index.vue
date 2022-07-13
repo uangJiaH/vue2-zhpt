@@ -1,5 +1,5 @@
 <template>
-  <router-view></router-view>
+  <div>roles</div>
 </template>
 
 <script setup>

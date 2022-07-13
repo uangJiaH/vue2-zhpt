@@ -1,41 +1,45 @@
 <template>
   <div class="aside-container">
     <el-menu
+        :collapse="isCollapse"
+        :collapse-transition="false"
+        :default-active="activePath"
+        :style="{width: isCollapse ? '60px' : '200px'}"
         active-text-color="#ffd04b"
         background-color="#222d32"
-        default-active="0"
-        text-color="#fff">
-      <el-menu-item index="1-4">
-        <i class="el-icon-location"></i>
-        <template slot="title">控制台</template>
-      </el-menu-item>
-      <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>系统管理</span>
-        </template>
-
-        <el-menu-item index="1-4">
-          <i class="el-icon-setting"></i>
-          <template slot="title">用户管理</template>
-        </el-menu-item>
-        <el-menu-item index="1-4">
-          <i class="el-icon-setting"></i>
-          <template slot="title">角色管理</template>
-        </el-menu-item>
-        <el-menu-item index="1-4">
-          <i class="el-icon-setting"></i>
-          <template slot="title">菜单管理</template>
-        </el-menu-item>
-      </el-submenu>
-
+        router
+        text-color="#fff"
+        unique-opened>
+      <tree-menus v-for="(item,index) in nav.menus" :key="index" :tree="item"></tree-menus>
     </el-menu>
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+import TreeMenus from './treemenus'
+
+
 export default {
-  name: 'index'
+  name: '',
+  components: {
+    TreeMenus
+  },
+
+  data() {
+    return {}
+  },
+  computed: {
+    ...mapGetters(['nav']),
+    activePath() {
+      return this.$route.path
+    },
+    isCollapse() {
+      return this.$store.getters.isCollapse
+    }
+
+  },
+  methods: {},
 }
 </script>
 

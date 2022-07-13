@@ -6,7 +6,7 @@ export default {
     state: {
         token: getItem('token') || '',
         userInfo: getItem('userInfo') || {},
-        nav: ''
+        nav: getItem('nav') || []
     },
     mutations: {
         setToken(state, token) {
@@ -28,13 +28,13 @@ export default {
             return token
         },
         async getNav({commit}) {
-            const navList = await UserApi.getNav()
-            commit('getNav', navList)
-            console.log(navList)
+            const navlist = await UserApi.getNav()
+            commit('setNav', navlist)
+         
             const user = await UserApi.userInfo()
             commit('setUserInfo', user)
-            console.log(user, 'user')
-            return navList
+
+            return navlist
         },
         loginOut({commit}) {
             commit('setToken', '')

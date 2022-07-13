@@ -1,26 +1,31 @@
 import router from '@/router/index'
 import store from "@/store";
+import {Message} from 'element-ui'
 
 router.beforeEach(async (to, from, next) => {
-    if (to.path !== '/login' && to.path !== '/welcome') {
+
+    if (to.path !== '/login') {
+
         if (to.meta.title) {
             const obj = {
                 title: to.meta.title,
                 path: to.path
             }
-            // store.commit('tagsView/addTag', obj)
+            console.log(obj, 'tag')
+            store.commit('tag/addTags', obj)
         }
     }
     const token = store.getters.token;
-    console.log(token, 'token11')
+
     const hasMenus = store.getters.nav.length
-    console.log(hasMenus, 'hasmenu')
+
     if (to.path === '/login' && token) {
-        console.log('1')
+        Message('请不要重复登录')
+
         return next('/')
     }
     if (to.path !== '/login' && !token) {
-        console.log(token, '2')
+
         return next('/login')
     }
     if (to.path !== '/login' && token) {
