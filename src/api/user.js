@@ -30,6 +30,14 @@ const getNav = () => {
         method: 'GET'
     })
 }
+
+const getUserList = (data) => {
+    return request(({
+        url: '/user/list',
+        method: "GET",
+        data
+    }))
+}
 export default {
-    getCaptcha, login, userInfo, getNav
+    getCaptcha, login, userInfo, getNav, getUserList
 }
