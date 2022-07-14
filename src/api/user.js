@@ -38,6 +38,22 @@ const getUserList = (data) => {
         data
     }))
 }
+// 用户列表
+const getRoleList = (data) => {
+    return request({
+        url: '/role/list',
+        method: "get",
+        data
+    })
+}
+// 菜单数据
+const getMenuList = (data) => {
+    return request({
+        url: '/menu/list',
+        method: "get",
+        data
+    })
+}
 export default {
-    getCaptcha, login, userInfo, getNav, getUserList
+    getCaptcha, login, userInfo, getNav, getUserList, getRoleList, getMenuList
 }

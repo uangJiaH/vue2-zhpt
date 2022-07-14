@@ -4,11 +4,12 @@ import ElementUI from 'element-ui';
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import 'iview/dist/styles/iview.css';
 
-// import './styles/reset.scss'
-// import './styles/common.scss'
 import './permission'
+import iView from 'iview';
 
+Vue.use(iView);
 Vue.use(ElementUI);
 Vue.config.productionTip = false
 

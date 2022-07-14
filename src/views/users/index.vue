@@ -6,10 +6,7 @@
       <!--      分割线-->
       <el-divider></el-divider>
       <!--            搜索-->
-      <div class="search">
-        <el-input v-model="input" class="inputcc" placeholder="请输入内容" size="medium " style="width: 200px"></el-input>
-        <el-button size="medium" type="success">查询</el-button>
-      </div>
+     
 
       <!--      表格-->
       <my-table :data="tableData" :rules="columns">
@@ -53,9 +50,7 @@ export default {
       columns,
       tableData: [],
       // 搜索
-      pageModel: {
-        username: ''
-      }
+
     }
   },
   methods: {
@@ -63,7 +58,9 @@ export default {
       const {records} = await UserApi.getUserList()
       console.log(records, 'getlist')
       this.tableData = records
-    }
+    },
+
+
   },
   created() {
     this.getlist()

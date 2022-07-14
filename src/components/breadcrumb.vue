@@ -11,5 +11,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+.el-breadcrumb {
+  margin-bottom: 10px;
+}
 </style>

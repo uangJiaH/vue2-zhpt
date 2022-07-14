@@ -3,8 +3,8 @@
     <div class="left">
       <el-button
           :icon="
-          $store.getters.isCollapse ? 'el-icon-s-fold' : 'el-icon-s-unfold'
-        "
+                $store.getters.isCollapse ? 'el-icon-s-fold' : 'el-icon-s-unfold'
+              "
           size="mini"
           type="text"
           @click="handleCollapseMenu"
@@ -19,6 +19,7 @@
           type="warning">
         {{ tag.title }}
       </el-tag>
+
     </div>
     <div class="right">
       <div class="right-tool-tip">
@@ -47,7 +48,10 @@
 </template>
 
 <script>
+
+
 export default {
+
   data() {
     return {
       circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
